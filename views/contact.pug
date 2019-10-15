@@ -1,0 +1,53 @@
+extends layout
+block content
+  h2.text-center Send a message to us!
+  .container
+    .row
+     .col-xl-8.offset-xl-2.py-5
+       form#contact-form(method="post" action="contact" role="form")
+         .messages
+         .controls
+           .row
+             .col-md-6
+               .form-group
+                 label(for="form_name") Firstname *
+                 input#form_name.form-control(type="text" name="name" placeholder="Please enter your firstname *" )
+                
+             .col-md-6
+               .form-group
+                 label(for="form_lastname") Lastname *
+                 input#form_lastname.form-control(type="text" name="surname" placeholder="Please enter your lastname *" required="required" )
+                 .help-block.with-errors
+           .row
+             .col-md-6
+               .form-group
+                 label(for="form_email") Email *
+                 input#form_email.form-control(type="email" name="email"  placeholder="Please enter your email *" required="required")
+                 .help-block.with-errors
+             .col-md-6
+               .form-group
+                 label(for="form_need") Please Framework of Choice *
+                 select#form_need.form-control(name="need" required="required")
+                   option(value="") Select a Framework of Choice
+                   option(value="Angular") Angular
+                   option(value="Vue") Vue
+                   option(value="React") React
+                   option(value="Other") Other
+                 .help-block.with-errors
+           .row
+             .col-md-12
+               .form-group
+                 label(for="form_message") Message *
+                 textarea#form_message.form-control(name="message" placeholder="Why did you pick the framework? *" rows="4" required="required")
+                 .help-block.with-errors
+             br
+             .col-md-12
+               .g-recaptcha(name="google-recap", data-sitekey="6Lc5FLcUAAAAAAdxwth9zrNgPhnRb7ZQ5yYk01KS")
+             br
+             .col-md-12
+               input.btn.btn-success.btn-send(type="submit" value="Send message")
+              
+              
+
+         
+       
